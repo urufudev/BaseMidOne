@@ -133,6 +133,12 @@ class PageController extends Controller
     public function sideMenu()
     {
         return [
+            'users' => [
+                'icon' => 'users',
+                'layout' => 'side-menu',
+                'page_name' => 'users',
+                'title' => 'Usuarios'
+            ],
             'dashboard' => [
                 'icon' => 'home',
                 'layout' => 'side-menu',

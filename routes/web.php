@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\LaboralController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +26,14 @@ Route::middleware('auth')->group(function() {
     Route::get('/', [PageController::class, 'loadPage'])->name('dashboard');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('page/{layout}/{theme}/{pageName}', [PageController::class, 'loadPage'])->name('page');
+
+
+
+Route::get('laborals',[LaboralController::class, 'index'])->name('laborals.index');
+
+
 });
+
+
+
 

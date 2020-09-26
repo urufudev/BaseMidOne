@@ -8,7 +8,7 @@ Purchase: https://themeforest.net/user/left4code/portfolio
 Renew Support: https://themeforest.net/user/left4code/portfolio
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $theme }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ $theme ?? '' }}">
 <!-- BEGIN: Head -->
 <head>
     <meta charset="utf-8">
