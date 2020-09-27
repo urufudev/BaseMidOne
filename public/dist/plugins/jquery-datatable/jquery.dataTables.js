@@ -4160,7 +4160,7 @@
 		var language = settings.oLanguage;
 		var previousSearch = settings.oPreviousSearch;
 		var features = settings.aanFeatures;
-		var input = '<input type="search" class="'+classes.sFilterInput+'"/>';
+		var input = '<input type="search" class="input w-56 box  placeholder-theme-13"/>';
 	
 		var str = language.sSearch;
 		str = str.match(/_INPUT_/) ?

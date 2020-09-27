@@ -155,18 +155,18 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END: Account Menu -->
                 </div>
                 <!-- END: Top Bar -->
-   
 
-                
-                <div class="intro-y block sm:flex items-center h-10 mt-10">
+                <div class="intro-x flex items-center h-10 mt-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                         @yield('title')
                     </h2>
-                    <div class="flex items-center sm:ml-auto mt-3 sm:mt-0">
-                        @yield('actionbutton')
-                                                
-                    </div>
+                    @yield('actionbutton')
+                     
                 </div>
+   
+
+                
+                
                 
                 @yield('content')
                 
@@ -179,8 +179,7 @@ License: You must have a valid license purchased only from themeforest(the above
         {{-- @include('../layout/components/dark-mode-switcher') --}}
 
         <!-- BEGIN: JS Assets-->
-        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
+        
         <script src="{{ mix('dist/js/app.js') }}"></script>
         <!-- END: JS Assets-->
 

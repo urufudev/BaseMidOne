@@ -2,7 +2,10 @@
 
 @section('styles')
 {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css"> --}}
-<link href="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet" />
+<link href="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/css/responsive.dataTables.min.css')}}" rel="stylesheet" />
+<link href="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" />
+{{-- <script src="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap4.min.css')}}"></script> --}}
 @endsection
 
 @section('breadcrumb')
@@ -14,34 +17,26 @@ Lista de Regimen Laboral
 @endsection
 
 @section('actionbutton')
-<button class="button text-white bg-theme-1 shadow-md mr-2">Add New Product</button>
+<button class="button text-white bg-theme-1 shadow-md mr-2  ml-auto">Crear</button>
+{{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Crear</button> --}}
 @endsection
 
 @section('content')
 <div class="grid grid-cols-6 gap-6 mt-5">
-    <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-
-        
-        <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
-            <div class="w-56 relative text-gray-700 dark:text-gray-300">
-                <input type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
-                <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i> 
-            </div>
-        </div>
-    </div>
+    
     <!-- BEGIN: Data List -->
     <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
         <table class="table table-report -mt-2" id="dgwTabla">
             <thead>
                 <tr>
-                    <th class="whitespace-no-wrap">ID</th>
+                    <th width="3%" class="text-center">ID</th>
                     <th class="whitespace-no-wrap">NOMBRE</th>
-                    <th class="text-center whitespace-no-wrap">DESCRIPCIÓN</th>
-                    <th class="text-center whitespace-no-wrap">ESTADO</th>
-                    <th class="text-center whitespace-no-wrap">ACCIÓNES</th>
+                    <th class="whitespace-no-wrap">DESCRIPCIÓN</th>
+                    <th width="10%" class="text-center whitespace-no-wrap">ESTADO</th>
+                    <th width="10%" class="text-center whitespace-no-wrap">ACCIÓNES</th>
                 </tr>
             </thead>
-            <tbody>
+            {{-- <tbody>
                 @foreach($laborals as $laboral)
                 <tr class="intro-x">
                     <td class="w-40">
@@ -74,39 +69,10 @@ Lista de Regimen Laboral
                     </td>
                 </tr>
                 @endforeach
-            </tbody>
+            </tbody> --}}
         </table>
     </div>
     <!-- END: Data List -->
-    <!-- BEGIN: Pagination -->
-    <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-no-wrap items-center">
-        <ul class="pagination">
-            <li>
-                <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-left"></i> </a>
-            </li>
-            <li>
-                <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevron-left"></i> </a>
-            </li>
-            <li> <a class="pagination__link" href="">...</a> </li>
-            <li> <a class="pagination__link" href="">1</a> </li>
-            <li> <a class="pagination__link pagination__link--active" href="">2</a> </li>
-            <li> <a class="pagination__link" href="">3</a> </li>
-            <li> <a class="pagination__link" href="">...</a> </li>
-            <li>
-                <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevron-right"></i> </a>
-            </li>
-            <li>
-                <a class="pagination__link" href=""> <i class="w-4 h-4" data-feather="chevrons-right"></i> </a>
-            </li>
-        </ul>
-        <select class="w-20 input box mt-3 sm:mt-0">
-            <option>10</option>
-            <option>25</option>
-            <option>35</option>
-            <option>50</option>
-        </select>
-    </div>
-    <!-- END: Pagination -->
 </div>
 
 @endsection
@@ -115,48 +81,44 @@ Lista de Regimen Laboral
 <script src="{{asset('dist/plugins/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('dist/plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
 <script src="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/skin/bootstrap/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/buttons.flash.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
 
+<script src="{{asset('dist/plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+ --}}
 <script>
     $(document).ready(function(){
         
-        $('#dgwTabla').DataTable({
-
-        language: {
-                           "sProcessing":     "Procesando...",
-                    "sLengthMenu":     "Mostrar _MENU_ registros",
-                    "sZeroRecords":    "No se encontraron resultados",
-                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix":    "",
-                    "sSearch":         "Buscar:",
-                    "sUrl":            "",
-                    "sInfoThousands":  ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst":    "Primero",
-                        "sLast":     "Último",
-                        "sNext":     "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                       
-                           
-                           "copy":"Copiar",
-                           "colvis":"Filtro"
-               }
+        var table= $('#dgwTabla').DataTable({
+            "serverSide":true,
+            "ajax":"{{url('api/laborals')}}",
+            "columns": [
+                {data: 'id',class:'text-center',},
+                {data: 'name'},
+                {data:'description'},
+                {data:'status'},
+                {data:'btn',class:'table-report__action',}
+             ],
+             language: {
+                sUrl: 'dist/plugins/jquery-datatable/spanish.json'
                 },
-        dom: 'Bfrtip',
-        lengthChange: false,
+        dom: 'Blfrtip',
+        lengthChange: true,
+        
         autoWidth: false,
         responsive: true,
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'Todos']],
         buttons: [
-             'copy','excel', 'pdf','colvis'
+             'excel', 'pdf'
         ]
     });
     });

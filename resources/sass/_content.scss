@@ -1,7 +1,7 @@
 .content {
     border-radius: 30px;
     padding: 0px 22px;
-    @apply min-w-0 min-h-screen bg-theme-2 flex-1 pb-10;
+    @apply min-w-0 min-h-95vh bg-theme-2 flex-1 pb-10;
     @media (max-width: $md) {
         @apply px-4 max-w-full;
     }

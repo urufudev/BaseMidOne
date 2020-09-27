@@ -23,7 +23,10 @@ class LaboralFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'description' => $this->faker->text(12),
+            'status' => ['ACTIVO', 'INACTIVO'][rand(0, 1)],
+            
         ];
     }
 }
