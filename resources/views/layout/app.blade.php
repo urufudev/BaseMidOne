@@ -23,6 +23,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     @yield('styles')
     <!-- END: CSS Assets-->
 </head>
@@ -130,7 +133,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     
                     
                     <!-- BEGIN: Account Menu -->
-                    <div class="intro-x dropdown w-8 h-8">
+                    <div class="intro-x dropdown w-8 h-8 sm:ml-6 ml-auto">
                         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in">
                             <img alt="Midone Tailwind HTML Admin Template" src="dist/images/profile-4.jpg">
                         </div>
@@ -181,8 +184,68 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN: JS Assets-->
         
         <script src="{{ mix('dist/js/app.js') }}"></script>
-        <!-- END: JS Assets-->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+        <!-- END: JS Assets-->
+        <script>
+            @if(Session::has('message'))
+              var type = "{{ Session::get('alert-type', 'info') }}";
+              switch(type){
+                  case 'info':
+                  Toastify({                 
+                            text: "{{ Session::get('message') }}",
+                            duration: 3000,
+                            newWindow: true,
+                            close: false,
+                            gravity: "bottom",
+                            position: "left",
+                            backgroundColor: "#0099CC",
+                            stopOnFocus: true
+                        }).showToast();
+                      break;
+                  
+                  case 'warning':
+                  Toastify({                 
+                            text: "{{ Session::get('message') }}",
+                            duration: 3000,
+                            newWindow: true,
+                            close: false,
+                            gravity: "bottom",
+                            position: "left",
+                            backgroundColor: "#FF8800",
+                            stopOnFocus: true
+                        }).showToast();
+                      break;
+          
+                  case 'success':
+                  Toastify({                 
+                            text: "{{ Session::get('message') }}",
+                            duration: 3000,
+                            newWindow: true,
+                            close: false,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#00C851",
+                            stopOnFocus: true,
+                            
+                        }).showToast();
+                      break;
+          
+                  case 'error':
+                  Toastify({                 
+                            text: "{{ Session::get('message') }}",
+                            duration: 3000,
+                            newWindow: true,
+                            close: false,
+                            gravity: "bottom",
+                            position: "left",
+                            backgroundColor: "#CC0000",
+                            stopOnFocus: true
+                        }).showToast();
+                      break;
+              }
+            @endif
+          </script>
         @yield('scripts')
     </body>
 

@@ -39,6 +39,7 @@ Route::get('laborals',function(){
     /* ->addColumn('status','laborals.partials.status') */
     ->addColumn('btn','laborals.partials.actions')
     ->rawColumns(['btn','status'])
+    ->escapeColumns([])
     ->toJson();
     
 });

@@ -134,7 +134,11 @@ div.dt-button-collection a.dt-button {
     margin-bottom: 4px;
     margin-right: 0
 }
-
+@media (max-width: 600px) {
+    .hide-for-mobile {
+        display: none
+    }
+  }
 div.dt-button-collection.fixed {
     position: fixed;
     top: 50%;

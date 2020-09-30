@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Laboral;
 use Illuminate\Http\Request;
+use App\Http\Requests\LaboralStoreRequest;
+use App\Http\Requests\LaboralUpdateRequest;
 
 class LaboralController extends Controller
 {
@@ -37,12 +39,17 @@ class LaboralController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LaboralStoreRequest $request)
     {
         $laboral = Laboral::create($request->all());
 
+        $notification = array(
+            'message' => '<b>Registrado correctamente</b>', 
+            'alert-type' => 'success'
+        );
+
         return redirect()->route('laborals.index')
-            ->with('info', 'REGIMEN LABORAL CREADO CON ÉXITO');
+            ->with($notification);
     }
 
     /**
@@ -74,7 +81,7 @@ class LaboralController extends Controller
      * @param  \App\Models\Laboral  $laboral
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Laboral $laboral)
+    public function update(LaboralUpdateRequest $request, Laboral $laboral)
     {
         $laboral->fill($request->all())
             ->save();

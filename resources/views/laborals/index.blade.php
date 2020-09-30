@@ -9,7 +9,11 @@
 @endsection
 
 @section('breadcrumb')
-<div class="-intro-x breadcrumb mr-auto hidden sm:flex"> <a href="" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> <a href="" class="breadcrumb--active">Dashboard</a> </div>
+<div class="-intro-x breadcrumb mr-auto hidden sm:flex"> 
+    <a href="" class="">Inicio</a> 
+    <i data-feather="chevron-right" class="breadcrumb__icon"></i> 
+    <a href="" class="breadcrumb--active">Regimen Laboral</a> 
+</div>
 @endsection
 
 @section('title')
@@ -17,7 +21,10 @@ Lista de Regimen Laboral
 @endsection
 
 @section('actionbutton')
-<button class="button text-white bg-theme-1 shadow-md mr-2  ml-auto">Crear</button>
+
+<a href="{{route('laborals.create')}}" class="button inline-block ml-auto mr-1 mb-2 bg-theme-1 text-white inline-flex items-center">
+    <i class="w-4 h-4 mr-1" data-feather="plus"></i>
+    Crear </a>
 {{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Crear</button> --}}
 @endsection
 
@@ -26,14 +33,14 @@ Lista de Regimen Laboral
     
     <!-- BEGIN: Data List -->
     <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-        <table class="table table-report -mt-2" id="dgwTabla">
+        <table class="table table-report -mt-2" id="dgwTabla" data-order='[[ 0, "desc" ]]'>
             <thead>
                 <tr>
-                    <th width="3%" class="text-center">ID</th>
-                    <th class="whitespace-no-wrap">NOMBRE</th>
-                    <th class="whitespace-no-wrap">DESCRIPCIÓN</th>
-                    <th width="10%" class="text-center whitespace-no-wrap">ESTADO</th>
-                    <th width="10%" class="text-center whitespace-no-wrap">ACCIÓNES</th>
+                    <th width="3%" class="text-center border-b-2 dark:border-dark-5 whitespace-no-wrap">ID</th>
+                    <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">NOMBRE</th>
+                    <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">DESCRIPCIÓN</th>
+                    <th width="10%" class="text-center border-b-2 dark:border-dark-5 whitespace-no-wrap">ESTADO</th>
+                    <th width="10%" class="text-center border-b-2 dark:border-dark-5 whitespace-no-wrap">ACCIÓNES</th>
                 </tr>
             </thead>
             {{-- <tbody>
@@ -75,6 +82,7 @@ Lista de Regimen Laboral
     <!-- END: Data List -->
 </div>
 
+
 @endsection
 
 @section('scripts')
@@ -96,6 +104,7 @@ Lista de Regimen Laboral
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
  --}}
 <script>
+    
     $(document).ready(function(){
         
         var table= $('#dgwTabla').DataTable({
@@ -118,9 +127,12 @@ Lista de Regimen Laboral
         responsive: true,
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'Todos']],
         buttons: [
-             'excel', 'pdf'
+            {   extend: "excel", className: "hide-for-mobile" },
+            {   extend: "pdf", className: "hide-for-mobile" }
+            
         ]
     });
+    
     });
 </script>
 

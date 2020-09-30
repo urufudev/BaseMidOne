@@ -7,10 +7,11 @@ import Tabulator from 'tabulator-tables'
         
     // Tabulator
     if (cash('#tabulator').length) {
+        
 
         // Setup Tabulator
         let table = new Tabulator("#tabulator", {
-            ajaxURL: 'https://dummy-data.left4code.com',
+            ajaxURL: 'http://192.168.1.43:8000/api/laborals',
             ajaxFiltering: true,
             ajaxSorting: true,
             printAsHtml: true,
@@ -43,7 +44,7 @@ import Tabulator from 'tabulator-tables'
                     formatter(cell, formatterParams) {
                         return `<div>
                             <div class="font-medium whitespace-no-wrap">${cell.getData().name}</div>
-                            <div class="text-gray-600 text-xs whitespace-no-wrap">${cell.getData().category}</div>
+                            <div class="text-gray-600 text-xs whitespace-no-wrap">${cell.getData().description}</div>
                         </div>`
                     }
                 },
@@ -56,28 +57,10 @@ import Tabulator from 'tabulator-tables'
                     print: false,
                     download: false,
                     formatter(cell, formatterParams) {
-                        return `<div class="flex lg:justify-center">
-                            <div class="intro-x w-10 h-10 image-fit">
-                                <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="/dist/images/${cell.getData().images[0]}">
-                            </div>
-                            <div class="intro-x w-10 h-10 image-fit -ml-5">
-                                <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="/dist/images/${cell.getData().images[1]}">
-                            </div>
-                            <div class="intro-x w-10 h-10 image-fit -ml-5">
-                                <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="/dist/images/${cell.getData().images[2]}">
-                            </div>
-                        </div>`
+                        return `<div class="text-gray-600 text-xs whitespace-no-wrap">${cell.getData().description}</div>`
                     }
                 },
-                { 
-                    title: 'REMAINING STOCK', 
-                    minWidth: 200,
-                    field: 'remaining_stock', 
-                    hozAlign: 'center', 
-                    vertAlign: 'middle', 
-                    print: false, 
-                    download: false
-                },
+                
                 { 
                     title: 'STATUS', 
                     minWidth: 200,

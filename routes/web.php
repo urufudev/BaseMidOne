@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function() {
 
 Route::get('laborals',[LaboralController::class, 'index'])->name('laborals.index');
 
+Route::get('laborals/create', [LaboralController::class, 'create'])->name('laborals.create');
+Route::post('laborals/store', [LaboralController::class, 'store'])->name('laborals.store');
+Route::put('laborals/{laboral}', [LaboralController::class, 'update'])->name('laborals.update');
+Route::get('laborals/{laboral}/edit', [LaboralController::class, 'edit'])->name('laborals.edit');
 
 });
 
