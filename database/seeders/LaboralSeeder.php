@@ -25,6 +25,6 @@ class LaboralSeeder extends Seeder
             'status'=>'INACTIVO'
         ]);
 
-        Laboral::factory()->times(20)->create();
+        Laboral::factory()->times(2000)->create();
     }
 }

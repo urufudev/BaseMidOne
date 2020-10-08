@@ -12,4 +12,13 @@ class Laboral extends Model
     protected $fillable=[
         'name','description','status'
     ];
+
+
+    public function scopeSearch($query, $val)
+    {
+        return $query
+        ->where('name','like','%'.$val.'%')
+        ->Orwhere('description','like','%'.$val.'%')
+        ;
+    }
 }

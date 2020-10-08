@@ -25,7 +25,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}" />
     
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    @livewireStyles
     @yield('styles')
     <!-- END: CSS Assets-->
 </head>
@@ -184,6 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN: JS Assets-->
         
         <script src="{{ mix('dist/js/app.js') }}"></script>
+        @livewireScripts
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
         <!-- END: JS Assets-->
