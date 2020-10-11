@@ -9,8 +9,14 @@
         </select>
         <div class="w-full  mt-3 sm:mt-0 sm:ml-auto   md:ml-0">
             <div class="w-56 ml-auto relative text-gray-700 dark:text-gray-300">
-                <input wire:model="search"  type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
+                <input wire:model="search"  type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Buscar...">
+                @if($search == '')
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                @else
+                <button wire:click="clear" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0  ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0  right-0 text-theme-1 dark:text-theme-10"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                @endif
             </div>
         </div>
     </div>
@@ -83,8 +89,23 @@
             </tbody>
         </table>
 
+        
+        @if($laborals->count())
         <br>
         {{$laborals->links()}}
+        @else
+        <div class="grid grid-cols-12 gap-6 mt-5 align-center">
+            <!-- BEGIN: FAQ Menu -->
+            <a href="" class="intro-y col-span-12 lg:col-span-12 box py-10  border-theme-1 dark:border-theme-1">
+                <div class="w-12 h-12 text-theme-1 dark:text-theme-10 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send w-12 h-12 text-theme-1 dark:text-theme-10 mx-auto"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+            <div class="font-medium text-center text-base mt-3">No hay resultados para la búsqueda "{{$search}}" en la página {{$page}} al mostrar {{$perPage}} por página</div>
+            </a>
+ 
+
+        </div>
+        @endif
     </div>
     <!-- END: Data List -->
 </div>

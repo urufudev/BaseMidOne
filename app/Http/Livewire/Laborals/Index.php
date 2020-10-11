@@ -9,6 +9,11 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
+    protected $queryString = [
+        'search'=> ['except'=> ''],
+        'perPage'
+    ];
+
     public $perPage = 10;
     public $sortField = "id";
     public $sortAsc = true;
@@ -37,6 +42,13 @@ class Index extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function clear()
+    {
+        $this->search= '';
+        $this->page= 1;
+        $this->perPage= 10;
     }
     
 }
