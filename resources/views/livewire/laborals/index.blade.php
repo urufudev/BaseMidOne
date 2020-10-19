@@ -90,9 +90,15 @@
         </table>
 
         
+        
+    </div>
+    <!-- END: Data List -->
+    <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
         @if($laborals->count())
-        <br>
-        {{$laborals->links()}}
+        
+        {{$laborals->links('partials.custom-pagination')}}
+        
+        
         @else
         <div class="grid grid-cols-12 gap-6 mt-5 align-center">
             <!-- BEGIN: FAQ Menu -->
@@ -107,6 +113,5 @@
         </div>
         @endif
     </div>
-    <!-- END: Data List -->
 </div>
 

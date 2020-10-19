@@ -22,7 +22,7 @@ class Index extends Component
     {
         $laborals = Laboral::query()
             ->search($this->search)
-            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->orderBy($this->sortField, $this->sortAsc ? 'desc' : 'asc')
             ->paginate($this->perPage);
 
         return view('livewire.laborals.index',compact('laborals'));
