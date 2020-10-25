@@ -23,7 +23,7 @@ Lista de Regimen Laboral
 @section('actionbutton')
 
 <a href="{{route('laborals.create')}}" class="button inline-block ml-auto mr-1 mb-2 bg-theme-1 text-white inline-flex items-center">
-    <i class="w-4 h-4 mr-1" data-feather="plus"></i>
+    <i class="w-4 h-4 mr-1 sw-2" data-feather="plus"></i>
     Crear </a>
 {{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Crear</button> --}}
 @endsection

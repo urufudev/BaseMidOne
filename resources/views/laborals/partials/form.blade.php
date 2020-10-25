@@ -22,7 +22,7 @@
         <div class="mt-2">
            
             
-            {!! Form::checkbox('status', $laboral->status,null,['class'=>'input input--switch border']) !!}
+           {{--  {!! Form::checkbox('status', $laboral->status,null,['class'=>'input input--switch border']) !!} --}}
         </div>
     </div>
     <div class="text-right mt-5">
